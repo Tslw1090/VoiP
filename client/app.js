@@ -17,7 +17,22 @@ async function login() {
 }
 
 async function makeCall() {
-    alert('Call functionality coming soon!');
+    const number = document.getElementById('number').value;
+    if (!number) {
+        alert('Please enter a number to call');
+        return;
+    }
+    try {
+        const response = await fetch('/call/make', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ number })
+        });
+        const data = await response.json();
+        alert(data.message);
+    } catch (error) {
+        alert('Call failed');
+    }
 }
 
 async function loadCallHistory(userId = '101') {
