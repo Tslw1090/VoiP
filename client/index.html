@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>VoIP App</title>
+    <title>VoIP Webphone</title>
+    <script src="https://unpkg.com/sip.js@0.21.2/lib/index.js"></script>
 </head>
 <body>
     <h2>Login</h2>
@@ -9,9 +10,20 @@
     <input type="password" id="password" placeholder="Password">
     <button onclick="login()">Login</button>
 
+    <h2>Status</h2>
+    <div id="status">Not Connected</div>
+
     <h2>Dialpad</h2>
     <input type="text" id="number" placeholder="Enter number to call">
     <button onclick="makeCall()">Call</button>
+    <button onclick="hangup()">Hangup</button>
+
+    <h2>Call Controls</h2>
+    <button onclick="mute()">Mute</button>
+    <button onclick="unmute()">Unmute</button>
+    <button onclick="hold()">Hold</button>
+    <button onclick="unhold()">Unhold</button>
+    <button onclick="transfer()">Transfer</button>
 
     <h2>Call History</h2>
     <div id="callHistory"></div>
